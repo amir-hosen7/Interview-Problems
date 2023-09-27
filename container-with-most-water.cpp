@@ -1,5 +1,24 @@
 //https://leetcode.com/problems/container-with-most-water
 
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+      int n = height.size();
+      int l = 0, r = n - 1, res = 0;
+      while (l < r) {
+        int curr = min(height[l], height[r]) * (r - l);
+        res = max(curr, res);
+        if (height[l] < height[r]) l++;
+        else r--;
+      }
+      return res;
+    }
+};
+
+
+/*
+
 class Solution {
 public:
     int maxArea(vector<int>& height) {
@@ -26,3 +45,5 @@ public:
         return res;
     }
 };
+
+*/
